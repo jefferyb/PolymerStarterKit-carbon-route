@@ -22,7 +22,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: block;
       }
-
       span,
       input {
         @apply(--paper-font-body2);
@@ -30,65 +29,65 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <carbon-route
-                  id="gcroute"
+                  id="greetingCarbonRoute"
                   route="{{route}}"
-                  pattern="/greetings/:tab"
+                  pattern="/:tab"
                   data="{{greetingsRoute}}"></carbon-route>
     
     <paper-header-panel>
       <paper-toolbar class="bottom_fix">
         <paper-tabs id="greetings_tabs_id" attr-for-selected="route" selected="{{greetingsRoute.tab}}">
-          <paper-tab route="greetings_intro">
+          <paper-tab route="">
             <paper-icon-button icon="icons:description"></paper-icon-button>
             <span class="hide">Intro</span>
           </paper-tab>
-          <paper-tab route="greetings_vocabs">
+          <paper-tab route="vocabs">
             <paper-icon-button icon="icons:chrome-reader-mode"></paper-icon-button>
             <span class="hide">Vocabulary</span>
           </paper-tab>
-          <paper-tab route="greetings_conversation">
+          <paper-tab route="conversation">
             <paper-icon-button icon="icons:question-answer"></paper-icon-button>
             <span class="hide">Conversation</span>
           </paper-tab>
-          <paper-tab route="greetings_video">
+          <paper-tab route="video">
             <paper-icon-button icon="notification:ondemand-video"></paper-icon-button>
             <span class="hide">Video</span>
           </paper-tab>
-          <paper-tab route="greetings_quiz">
+          <paper-tab route="quiz">
             <paper-icon-button icon="icons:assignment"></paper-icon-button>
             <span class="hide">Quiz</span>
           </paper-tab>
         </paper-tabs>
       </paper-toolbar>
     </paper-header-panel>
-
+    
     <paper-material>
       <iron-pages id="greetings_pages_id" attr-for-selected="route" selected="{{greetingsRoute.tab}}">
-        <section id="greetings_intro_section_id" route="greetings_intro">
+        <section id="greetings_intro_section_id" route="">
           <div>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </div>
         </section>
 
-        <section id="greetings_vocabulary_section_id" route="greetings_vocabs">
+        <section id="greetings_vocabulary_section_id" route="vocabs">
           <div>
             Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
           </div>
         </section>
 
-        <section id="greetings_conversation_section_id" route="greetings_conversation">
+        <section id="greetings_conversation_section_id" route="conversation">
           <div>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </div>
         </section>
 
-        <section id="greetings_video_section_id" route="greetings_video">
+        <section id="greetings_video_section_id" route="video">
           <div>
             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
           </div>
         </section>
 
-        <section id="greetings_quiz_section_id" route="greetings_quiz">
+        <section id="greetings_quiz_section_id" route="quiz">
           <div>
             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
           </div>
@@ -105,16 +104,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Polymer({
         is: 'my-greeting',
         
-        properties: {
-          route: {
-            type: Object,
-            notify: true
-          },
-          greetingsRoute: {
-            type: Object
-          }
-        },
-
       });
     })();
   </script>
