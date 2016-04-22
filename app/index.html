@@ -63,7 +63,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- build:remove -->
   <span id="browser-sync-binding"></span>
   <!-- endbuild -->
-
+  
   <template is="dom-bind" id="app">
 
     <paper-drawer-panel id="paperDrawerPanel" responsive-width="840px">
@@ -76,18 +76,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </paper-toolbar>
 
         <!-- Drawer Content -->
-        <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]">
-          <a data-route="home" href="{{baseUrl}}">
+        <!-- Routing-->
+        <carbon-location id="clocation" route="{{route}}"></carbon-location>
+        <carbon-route
+                      id="croute"
+                      route="{{route}}"
+                      pattern="/:page"
+                      data="{{mainMenuRoute}}"
+                      tail="{{mainMenuTail}}"></carbon-route>
+        
+        <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[mainMenuRoute.page]]">
+          <a data-route="" href="/">
             <iron-icon icon="home"></iron-icon>
             <span>Home</span>
           </a>
 
-          <a data-route="users" href="{{baseUrl}}users">
+          <a data-route="users" href="/users">
             <iron-icon icon="info"></iron-icon>
             <span>Users</span>
           </a>
 
-          <a data-route="contact" href="{{baseUrl}}contact">
+          <a data-route="greetings" href="/greetings">
+            <iron-icon icon="icons:face"></iron-icon>
+            <span>Greetings</span>
+          </a>
+          
+          <a data-route="contact" href="/contact">
             <iron-icon icon="mail"></iron-icon>
             <span>Contact</span>
           </a>
@@ -115,10 +129,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Main Content -->
         <div class="content">
-          <iron-pages attr-for-selected="data-route" selected="{{route}}">
-            <section data-route="home">
+          <iron-pages attr-for-selected="data-route" selected="{{mainMenuRoute.page}}">
+            <section data-route="">
               <paper-material elevation="1">
-                <my-greeting class="focus-target" tabindex="-1"></my-greeting>
 
                 <p class="subhead">You now have:</p>
                 <my-list></my-list>
@@ -154,10 +167,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <h1 class="page-title focus-target" tabindex="-1">Users</h1>
                 <p>This is the users section</p>
-                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                <a href$="{{baseUrl}}users/Sam">Sam</a>
+                <a href$="/users/Addy">Addy</a><br>
+                <a href$="/users/Rob">Rob</a><br>
+                <a href$="/users/Chuck">Chuck</a><br>
+                <a href$="/users/Sam">Sam</a>
               </paper-material>
             </section>
 
@@ -174,6 +187,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <p>This is the contact section</p>
               </paper-material>
             </section>
+            
+            <my-greeting data-route="greetings" route="{{mainMenuTail}}"></my-greeting>
+            
           </iron-pages>
         </div>
       </paper-scroll-header-panel>
