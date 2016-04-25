@@ -85,7 +85,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                       data="{{mainMenuRoute}}"
                       tail="{{mainMenuTail}}"></carbon-route>
         
-        <paper-menu class="app-menu" attr-for-selected="data-route" selected="{{mainMenuRoute.page}}">
+        <paper-menu class="app-menu" attr-for-selected="data-route" selected="{{mainMenuRoute.page}}" on-iron-activate="closeDrawer">
           <a data-route="" href="/">
             <iron-icon icon="home"></iron-icon>
             <span>Home</span>

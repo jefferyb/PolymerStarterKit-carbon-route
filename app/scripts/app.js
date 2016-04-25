@@ -80,8 +80,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     app.$.headerPanelMain.scrollToTop(true);
   };
 
+  // Close drawer after selection
   app.closeDrawer = function() {
     app.$.paperDrawerPanel.closeDrawer();
   };
 
+  function closeDrawer(ctx, next) {
+    app.closeDrawer();
+    next();
+  }
+  
 })(document);
